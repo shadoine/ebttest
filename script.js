@@ -42,3 +42,11 @@ function toggleMenu(el){
   document.querySelector('.mobile-menu').classList.toggle('show');
   el.classList.toggle('active');
 }
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    const menu = document.querySelector('.mobile-menu');
+    const hamburger = document.querySelector('.hamburger');
+    menu.classList.remove('show');      // Menü schließen
+    hamburger.classList.remove('active'); // Hamburger zurücksetzen
+  });
+});
