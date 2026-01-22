@@ -86,7 +86,7 @@ body {
 
 /* Logo */
 .logo {
-  height: 50px;
+  height: 65px;
   display: block;
 }
 .logo-link {
@@ -94,7 +94,7 @@ body {
 }
 .logo-link img {
   display: block;
-  height: 50px;
+  height: 65px;
 }
 
 /* Desktop Links */
@@ -550,3 +550,4 @@ body {
     display: flex;
   }
 }
+
