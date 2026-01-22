@@ -213,7 +213,7 @@ body {
    HERO SECTION
 ===================================================== */
 .hero {
-  padding: 6rem 2rem;
+  padding: 9rem 2rem;
   background: radial-gradient(circle at top right, rgba(0, 4, 63, 0.08), #ffffff);
   display: flex;
   justify-content: center;
@@ -550,4 +550,5 @@ body {
     display: flex;
   }
 }
+
 
