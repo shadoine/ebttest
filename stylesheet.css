@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 /* =====================================================
    VARIABLES
 ===================================================== */
@@ -85,6 +88,13 @@ body {
 .logo {
   height: 50px;
   display: block;
+}
+.logo-link {
+  display: block;
+}
+.logo-link img {
+  display: block;
+  height: 50px;
 }
 
 /* Desktop Links */
