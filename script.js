@@ -9,28 +9,7 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".fade-in").forEach(el => {
   observer.observe(el);
 });
-const serviceCards = document.querySelectorAll('.service-card');
 
-serviceCards.forEach(card => {
-  card.addEventListener('click', () => {
-    // Wenn die Karte schon aktiv ist → deaktiviere
-    if (card.classList.contains('active')) {
-      card.classList.remove('active');
-      card.querySelector('.description').textContent = "Hier klicken für Details";
-    } else {
-      // Entferne aktive Klasse von allen Karten
-      serviceCards.forEach(c => {
-        c.classList.remove('active');
-        c.querySelector('.description').textContent = "Hier klicken für Details";
-      });
-
-      // Aktiviere die geklickte Karte
-      card.classList.add('active');
-      const desc = card.getAttribute('data-description');
-      card.querySelector('.description').textContent = desc;
-    }
-  });
-});
 const contactCards = document.querySelectorAll('.contact-card');
 
 contactCards.forEach(card => {
@@ -38,10 +17,36 @@ contactCards.forEach(card => {
     card.classList.toggle('show-back');
   });
 });
+/* Mobile scroll-based service card expansion */
+if (window.matchMedia("(max-width: 768px)").matches) {
+  const mobileServiceObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        const card = entry.target;
+        if (entry.isIntersecting) {
+          card.classList.add("active");
+        } else {
+          card.classList.remove("active");
+        }
+      });
+    },
+    {
+      threshold: 0.6 // card must be mostly visible
+    }
+  );
+
+  document.querySelectorAll(".service-card").forEach(card => {
+    mobileServiceObserver.observe(card);
+  });
+}
+
+
 function toggleMenu(el){
   document.querySelector('.mobile-menu').classList.toggle('show');
   el.classList.toggle('active');
 }
+
+
 document.querySelectorAll('.mobile-menu a').forEach(link => {
   link.addEventListener('click', () => {
     const menu = document.querySelector('.mobile-menu');
